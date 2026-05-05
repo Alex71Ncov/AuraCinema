@@ -20,10 +20,7 @@ test("OMDb 401 este raportat ca problema de configurare", async () => {
     fetchImpl: async () =>
       jsonResponse({
         status: 401,
-        body: {
-          Response: "False",
-          Error: "Invalid API key!"
-        }
+        body: { Response: "False", Error: "Invalid API key!" }
       })
   });
 
@@ -36,10 +33,7 @@ test("erorile HTTP OMDb pastreaza mesajul extern cand exista", async () => {
     fetchImpl: async () =>
       jsonResponse({
         status: 429,
-        body: {
-          Response: "False",
-          Error: "Request limit reached!"
-        }
+        body: { Response: "False", Error: "Request limit reached!" }
       })
   });
 

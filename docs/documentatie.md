@@ -15,20 +15,19 @@ Regulile de recomandare sunt:
 
 - Frontend: React, JavaScript, Vite, CSS standard.
 - Backend: Node.js, Express, CORS, dotenv.
-- Stocare: JSON Server peste fisierul `storage/db.json`.
+- Stocare: MongoDB Atlas prin MongoDB Node.js Driver.
 - API extern: OMDb API.
 - Documentatie: Markdown, Mermaid si PDF generat local.
 
 ## 3. Arhitectura de ansamblu
 
-Frontend-ul trimite o cerere catre backend pentru titlul cautat. Backend-ul verifica intai cache-ul prin JSON Server. Daca intrarea exista si nu a expirat, raspunsul este intors direct. Daca intrarea lipseste, este expirata sau utilizatorul cere refresh, backend-ul interogheaza OMDb, normalizeaza raspunsul, salveaza intrarea in cache si intoarce datele catre frontend.
+Frontend-ul trimite o cerere catre backend pentru titlul cautat. Backend-ul verifica intai cache-ul din MongoDB Atlas. Daca intrarea exista si nu a expirat, raspunsul este intors direct. Daca intrarea lipseste, este expirata sau utilizatorul cere refresh, backend-ul interogheaza OMDb, normalizeaza raspunsul, salveaza intrarea in MongoDB si intoarce datele catre frontend.
 
 ```mermaid
 flowchart LR
   U[Utilizator] --> F[Frontend React]
   F -->|GET /api/movies?title=...| B[Backend Express]
-  B --> C[JSON Server]
-  C --> D[(storage/db.json)]
+  B --> C[(MongoDB Atlas)]
   B -->|daca lipseste sau expira| O[OMDb API]
   O --> B
   C --> B
@@ -81,18 +80,18 @@ sequenceDiagram
   participant U as Utilizator
   participant F as Frontend React
   participant B as Backend Express
-  participant C as Cache JSON
+  participant C as MongoDB Atlas
   participant O as OMDb API
 
   U->>F: Introduce titlul filmului
   F->>B: GET /api/movies?title=...
-  B->>C: Verifica intrarea normalizata
+  B->>C: Verifica documentul cache
   alt Cache valid
     C-->>B: Date film
   else Cache lipsa/expirat
     B->>O: Cerere dupa titlu
     O-->>B: Date OMDb
-    B->>C: Salveaza date normalizate
+    B->>C: Upsert document cache
   end
   B-->>F: JSON cu film si recomandare
   F-->>U: Afiseaza rezultatul
@@ -126,36 +125,34 @@ Raspunsul principal contine:
 
 ## 8. Cache si expirare
 
-Cache-ul este salvat in `storage/db.json`, in colectia `movieCache`, prin JSON Server. Cheia este titlul normalizat al filmului: fara spatii inutile si cu litere mici. Durata implicita a cache-ului este de 24 de ore si poate fi schimbata prin `CACHE_TTL_HOURS`.
+Cache-ul este salvat in MongoDB Atlas, in baza de date `auracinema` si colectia `movieCache`. Cheia documentului este titlul normalizat al filmului: fara spatii inutile si cu litere mici. Durata implicita a cache-ului este de 24 de ore si poate fi schimbata prin `CACHE_TTL_HOURS`.
 
-Daca utilizatorul apasa reimprospatare, frontend-ul trimite `refresh=true`, iar backend-ul ocoleste cache-ul pentru cautarea respectiva.
+Backend-ul creeaza un index TTL pe campul `expiresAt`, astfel incat MongoDB poate sterge automat documentele expirate. Daca utilizatorul apasa reimprospatare, frontend-ul trimite `refresh=true`, iar backend-ul ocoleste cache-ul pentru cautarea respectiva.
 
 ## 9. Rulare locala
 
 ```bash
 npm install
-cp .env.example .env
 ```
 
 Terminal 1:
-
-```bash
-cd storage
-npm run dev
-```
-
-Terminal 2:
 
 ```bash
 cd backend
 npm run dev
 ```
 
-Terminal 3:
+Terminal 2:
 
 ```bash
 cd frontend
 npm run dev
 ```
 
-In `.env` trebuie completata variabila `OMDB_API_KEY`. Storage-ul ruleaza pe `http://127.0.0.1:5001`, backend-ul pe `http://localhost:4000`, iar frontend-ul pe `http://localhost:5173`.
+In `backend/.env` trebuie completate variabilele `PORT`, `CORS_ORIGIN`, `CACHE_TTL_HOURS`, `MONGODB_URI`, `MONGODB_DB_NAME`, `MONGODB_CACHE_COLLECTION` si `OMDB_API_KEY`. In `frontend/.env` se pastreaza doar `VITE_API_BASE_URL=http://localhost:4000`. Backend-ul ruleaza pe `http://localhost:4000`, iar frontend-ul pe `http://localhost:5173`.
+
+## 10. Deployment
+
+Backend-ul se publica pe Render ca Web Service cu root directory `backend`, build command `npm install`, start command `npm start` si health check path `/api/health`. Variabilele necesare sunt `MONGODB_URI`, `MONGODB_DB_NAME`, `MONGODB_CACHE_COLLECTION`, `CACHE_TTL_HOURS`, `OMDB_API_KEY` si `CORS_ORIGIN`.
+
+Frontend-ul se publica pe Vercel ca proiect separat din acelasi repository, cu root directory `frontend`, framework `Vite`, build command `npm run build` si output directory `dist`. Variabila `VITE_API_BASE_URL` trebuie sa pointeze spre URL-ul backend-ului de pe Render.

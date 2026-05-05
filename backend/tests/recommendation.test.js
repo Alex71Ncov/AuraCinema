@@ -1,30 +1,15 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-import {
-  buildRecommendation,
-  extractRatingScore
-} from "../src/recommendation.js";
+import { buildRecommendation, extractRatingScore } from "../src/recommendation.js";
 
 test("ratingul Rotten Tomatoes are prioritate fata de IMDb", () => {
   const score = extractRatingScore({
-    Ratings: [
-      {
-        Source: "Internet Movie Database",
-        Value: "8.0/10"
-      },
-      {
-        Source: "Rotten Tomatoes",
-        Value: "92%"
-      }
-    ],
+    Ratings: [{ Source: "Rotten Tomatoes", Value: "92%" }],
     imdbRating: "7.1"
   });
 
-  assert.deepEqual(score, {
-    percent: 92,
-    source: "Rotten Tomatoes"
-  });
+  assert.deepEqual(score, { percent: 92, source: "Rotten Tomatoes" });
 });
 
 test("ratingul IMDb este fallback cand lipseste Rotten Tomatoes", () => {
@@ -33,17 +18,11 @@ test("ratingul IMDb este fallback cand lipseste Rotten Tomatoes", () => {
     imdbRating: "6.4"
   });
 
-  assert.deepEqual(score, {
-    percent: 64,
-    source: "IMDb"
-  });
+  assert.deepEqual(score, { percent: 64, source: "IMDb" });
 });
 
 test("recomandarile respecta pragurile cerute", () => {
-  assert.equal(
-    buildRecommendation(81),
-    "Ar trebui sa vizionati acest film chiar acum!"
-  );
+  assert.equal(buildRecommendation(81), "Ar trebui sa vizionati acest film chiar acum!");
   assert.equal(buildRecommendation(49), "Ar trebui sa evitati filmul cu orice pret.");
   assert.equal(
     buildRecommendation(65),

@@ -1,11 +1,8 @@
 import assert from "node:assert/strict";
-import { mkdtemp } from "node:fs/promises";
-import os from "node:os";
-import path from "node:path";
 import { test } from "node:test";
 
-import { FileMovieCache } from "../src/cache/fileMovieCache.js";
 import { createMovieService } from "../src/services/movieService.js";
+import { normalizeTitle } from "../src/utils/title.js";
 
 function sampleMovie(overrides = {}) {
   return {
@@ -15,31 +12,34 @@ function sampleMovie(overrides = {}) {
     Rated: "PG-13",
     Runtime: "155 min",
     Plot: "Paul Atreides ajunge pe Arrakis.",
-    Poster: "https://example.com/dune.jpg",
-    Ratings: [
-      {
-        Source: "Rotten Tomatoes",
-        Value: "83%"
-      }
-    ],
+    Poster: "https://assets.auracinema.test/dune.jpg",
+    Ratings: [{ Source: "Rotten Tomatoes", Value: "83%" }],
     imdbRating: "8.0",
     ...overrides
   };
 }
 
-async function createTempCache() {
-  const dir = await mkdtemp(path.join(os.tmpdir(), "auracinema-cache-"));
+function createMemoryCache() {
+  const entries = new Map();
 
-  return new FileMovieCache({
-    filePath: path.join(dir, "movies-cache.json"),
-    ttlHours: 24
-  });
+  return {
+    async get(title) {
+      return entries.get(normalizeTitle(title)) ?? null;
+    },
+    async set(title, data) {
+      const entry = {
+        data,
+        expiresAt: "2026-05-06T12:00:00.000Z"
+      };
+      entries.set(normalizeTitle(title), entry);
+      return entry;
+    }
+  };
 }
 
 test("cache-ul proaspat evita apelul catre OMDb", async () => {
-  const cache = await createTempCache();
+  const cache = createMemoryCache();
   let calls = 0;
-
   const movieService = createMovieService({
     cache,
     omdbClient: {
@@ -60,17 +60,10 @@ test("cache-ul proaspat evita apelul catre OMDb", async () => {
 });
 
 test("refresh=true ocoleste cache-ul si actualizeaza raspunsul", async () => {
-  const cache = await createTempCache();
+  const cache = createMemoryCache();
   await cache.set("Dune", {
     title: "Dune",
-    year: "2021",
-    rated: "PG-13",
-    runtime: "155 min",
-    plot: "Versiune veche.",
-    poster: null,
-    scorePercent: 72,
-    scoreSource: "IMDb",
-    recommendation: "Filmul merita luat in calcul, dar nu este o recomandare urgenta."
+    scorePercent: 72
   });
 
   let calls = 0;
@@ -81,12 +74,7 @@ test("refresh=true ocoleste cache-ul si actualizeaza raspunsul", async () => {
         calls += 1;
         return sampleMovie({
           Plot: "Versiune actualizata.",
-          Ratings: [
-            {
-              Source: "Rotten Tomatoes",
-              Value: "91%"
-            }
-          ]
+          Ratings: [{ Source: "Rotten Tomatoes", Value: "91%" }]
         });
       }
     }

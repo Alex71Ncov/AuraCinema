@@ -22,28 +22,45 @@ const cacheTtlHours =
     ? parsedCacheTtlHours
     : 24;
 const corsOrigin = process.env.CORS_ORIGIN ?? "http://localhost:5173";
-const cacheDriver = process.env.CACHE_DRIVER ?? "json-server";
-const jsonServerUrl = process.env.JSON_SERVER_URL ?? "http://127.0.0.1:5001";
+const databaseName = process.env.MONGODB_DB_NAME ?? "auracinema";
+const collectionName = process.env.MONGODB_CACHE_COLLECTION ?? "movieCache";
 
-const cache = createMovieCache({
-  backendRoot,
-  cacheDriver,
-  cacheTtlHours,
-  jsonServerUrl
-});
+async function main() {
+  const { cache, close } = await createMovieCache({
+    cacheTtlHours,
+    collectionName,
+    databaseName,
+    mongoUri: process.env.MONGODB_URI
+  });
 
-const movieService = createMovieService({
-  cache,
-  omdbClient: createOmdbClient({
-    apiKey: process.env.OMDB_API_KEY
-  })
-});
+  const movieService = createMovieService({
+    cache,
+    omdbClient: createOmdbClient({
+      apiKey: process.env.OMDB_API_KEY
+    })
+  });
 
-const app = createApp({
-  movieService,
-  corsOrigin
-});
+  const app = createApp({
+    movieService,
+    corsOrigin
+  });
 
-app.listen(port, () => {
-  console.log(`AuraCinema API ruleaza pe http://localhost:${port}`);
+  const server = app.listen(port, "0.0.0.0", () => {
+    console.log(`AuraCinema API ruleaza pe http://localhost:${port}`);
+  });
+
+  async function shutdown() {
+    server.close(async () => {
+      await close();
+      process.exit(0);
+    });
+  }
+
+  process.on("SIGINT", shutdown);
+  process.on("SIGTERM", shutdown);
+}
+
+main().catch((error) => {
+  console.error(error.message);
+  process.exit(1);
 });

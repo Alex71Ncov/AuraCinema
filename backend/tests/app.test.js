@@ -7,11 +7,9 @@ import { MovieNotFoundError } from "../src/errors.js";
 async function startTestServer(app) {
   const server = app.listen(0);
   after(() => server.close());
-
   await new Promise((resolve) => server.once("listening", resolve));
 
-  const address = server.address();
-  return `http://127.0.0.1:${address.port}`;
+  return `http://127.0.0.1:${server.address().port}`;
 }
 
 test("GET /api/movies fara title intoarce 400", async () => {
