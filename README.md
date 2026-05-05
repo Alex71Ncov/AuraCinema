@@ -76,9 +76,18 @@ Backend-ul ruleaza pe `http://localhost:4000`, iar frontend-ul pe `http://localh
 
 Documentatia proiectului este in `docs/documentatie.md`, iar varianta PDF generata este `docs/AuraCinema-documentatie.pdf`.
 
+## Deployment
+
+Aplicatia este impartita in doua servicii:
+
+- backend pe Render: `https://auracinema-be.onrender.com`;
+- frontend pe Vercel, cu `VITE_API_BASE_URL` setat catre backend-ul Render.
+
+Pentru ca backend-ul Render sa poata accesa MongoDB Atlas, in Atlas trebuie permise IP-urile de iesire Render in sectiunea Network Access. Pentru testare s-a putut folosi si `0.0.0.0/0`, dar varianta mai buna este allowlist cu IP-urile Render.
+
 ## Observatii
 
 - Daca backend-ul nu porneste, verifica `MONGODB_URI` si `OMDB_API_KEY`.
-- In MongoDB Atlas, permite conexiuni din Render sau foloseste temporar `0.0.0.0/0` cu user si parola puternice.
+- In MongoDB Atlas, userul folosit de aplicatie trebuie sa aiba acces read/write pe baza `auracinema`.
 - Pentru Render: Root Directory `backend`, Build Command `npm install`, Start Command `npm start`, Health Check Path `/api/health`.
 - Pentru Vercel: Root Directory `frontend`, Framework `Vite`, Build Command `npm run build`, Output Directory `dist`.

@@ -2,9 +2,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000
 
 function normalizeApiError(message, status) {
   const rawMessage = String(message || "").trim();
-  const legacyStorageMessage = /json server|json-server|storage|cache_driver/i.test(
-    rawMessage
-  );
+  const legacyStorageMessage = /json\s*-?\s*server/i.test(rawMessage);
 
   if (legacyStorageMessage) {
     return "Backend-ul foloseste acum MongoDB. Redeploy-uieste backend-ul pe Render si verifica variabilele MONGODB_URI si Network Access in Atlas.";

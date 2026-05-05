@@ -156,3 +156,11 @@ In `backend/.env` trebuie completate variabilele `PORT`, `CORS_ORIGIN`, `CACHE_T
 Backend-ul se publica pe Render ca Web Service cu root directory `backend`, build command `npm install`, start command `npm start` si health check path `/api/health`. Variabilele necesare sunt `MONGODB_URI`, `MONGODB_DB_NAME`, `MONGODB_CACHE_COLLECTION`, `CACHE_TTL_HOURS`, `OMDB_API_KEY` si `CORS_ORIGIN`.
 
 Frontend-ul se publica pe Vercel ca proiect separat din acelasi repository, cu root directory `frontend`, framework `Vite`, build command `npm run build` si output directory `dist`. Variabila `VITE_API_BASE_URL` trebuie sa pointeze spre URL-ul backend-ului de pe Render.
+
+In varianta finala, backend-ul a fost deployat pe Render la `https://auracinema-be.onrender.com`, iar frontend-ul a fost deployat pe Vercel. Dupa obtinerea URL-ului de Vercel, variabila `CORS_ORIGIN` din Render trebuie setata catre acel URL.
+
+Pentru conectarea la MongoDB Atlas, in Network Access trebuie permise IP-urile de iesire ale serviciului Render. In timpul testarii se poate folosi `0.0.0.0/0`, dar nu este varianta recomandata pe termen lung.
+
+## 11. Verificari
+
+Au fost rulate testele backend cu `npm test`, build-ul frontend cu `npm run build` si generarea PDF-ului cu `npm run docs:pdf`. Pentru deploy se verifica endpoint-ul `/api/health`, apoi o cautare reala, de exemplu `/api/movies?title=Dune`.
