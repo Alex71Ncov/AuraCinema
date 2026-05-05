@@ -1,0 +1,511 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 2402 >>
+stream
+BT /F2 10 Tf 48 794 Td (AuraCinema) Tj ET
+BT /F2 22 Tf 48 760 Td (Documentatie proiect) Tj ET
+BT /F1 10 Tf 48 736 Td (Aplicatie full-stack React + Node/Express pentru cautarea filmelor,) Tj ET
+BT /F1 10 Tf 48 722 Td (recomandari pe baza ratingului si cache local JSON.) Tj ET
+BT /F2 15 Tf 48 674 Td (Tehnologii) Tj ET
+BT /F1 11 Tf 48 650 Td (Frontend: React, JavaScript, Vite si CSS standard. Backend: Node.js, Express,) Tj ET
+BT /F1 11 Tf 48 634 Td (CORS si dotenv. Stocare: fisier JSON local. API extern: OMDb.) Tj ET
+BT /F2 15 Tf 48 588 Td (Arhitectura de ansamblu) Tj ET
+q
+0.11 0.09 0.08 rg
+0.58 0.51 0.39 RG
+54 496 92 48 re B
+Q
+BT /F2 10 Tf 64 520 Td (Utilizator) Tj ET
+q
+0.10 0.13 0.12 rg
+0.58 0.51 0.39 RG
+178 496 98 48 re B
+Q
+BT /F2 10 Tf 188 520 Td (Frontend React) Tj ET
+q
+0.11 0.10 0.13 rg
+0.58 0.51 0.39 RG
+308 496 104 48 re B
+Q
+BT /F2 10 Tf 318 520 Td (Backend Express) Tj ET
+q
+0.13 0.10 0.08 rg
+0.58 0.51 0.39 RG
+444 544 96 44 re B
+Q
+BT /F2 10 Tf 454 566 Td (OMDb API) Tj ET
+q
+0.09 0.12 0.12 rg
+0.58 0.51 0.39 RG
+444 448 96 44 re B
+Q
+BT /F2 10 Tf 454 470 Td (Cache JSON) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 146 520 m 178 520 l S
+Q
+q
+0.65 0.72 0.68 rg
+178 520 m 172.08970452148588 523.750787564853 l 172.08970452148588 516.249212435147 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 276 520 m 308 520 l S
+Q
+q
+0.65 0.72 0.68 rg
+308 520 m 302.0897045214859 523.750787564853 l 302.0897045214859 516.249212435147 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 412 528 m 444 560 l S
+Q
+q
+0.65 0.72 0.68 rg
+444 560 m 437.1685826664288 558.4729973102242 l 442.47299731022423 553.1685826664287 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 412 512 m 444 470 l S
+Q
+q
+0.65 0.72 0.68 rg
+444 470 m 443.4016009292353 476.9743758539462 l 437.43461012086027 472.4280971428033 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 444 558 m 412 528 l S
+Q
+q
+0.65 0.72 0.68 rg
+412 528 m 418.8770983203366 529.3059550882109 l 413.74646255773735 534.7786332349834 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 444 470 m 412 512 l S
+Q
+q
+0.65 0.72 0.68 rg
+412 512 m 412.5983990707647 505.0256241460538 l 418.56538987913973 509.5719028571967 l h f
+Q
+BT /F2 15 Tf 48 392 Td (Flux principal) Tj ET
+BT /F1 11 Tf 48 368 Td (Backend-ul verifica intai cache-ul. Daca intrarea lipseste, a expirat sau) Tj ET
+BT /F1 11 Tf 48 352 Td (cererea are refresh=true, datele sunt cerute de la OMDb, normalizate si salvate) Tj ET
+BT /F1 11 Tf 48 336 Td (cu o expirare calculata din CACHE_TTL_HOURS.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 2604 >>
+stream
+BT /F2 10 Tf 48 794 Td (AuraCinema) Tj ET
+BT /F2 22 Tf 48 760 Td (Use Case si reguli de recomandare) Tj ET
+BT /F1 10 Tf 48 736 Td (Actorul principal este utilizatorul aplicatiei AuraCinema.) Tj ET
+q
+0.11 0.09 0.08 rg
+0.58 0.51 0.39 RG
+58 590 86 48 re B
+Q
+BT /F2 10 Tf 68 614 Td (Utilizator) Tj ET
+q
+0.08 0.08 0.09 rg
+0.44 0.40 0.33 RG
+190 470 330 210 re B
+Q
+BT /F2 12 Tf 210 654 Td (Sistem: AuraCinema) Tj ET
+q
+0.13 0.11 0.09 rg
+0.72 0.57 0.26 RG
+333 642 m 390.989898729 642 438 633.4934102462 438 623 c 438 612.5065897538 390.989898729 604 333 604 c 275.010101271 604 228 612.5065897538 228 623 c 228 633.4934102462 275.010101271 642 333 642 c B
+Q
+BT /F2 9 Tf 244 619 Td (Cauta film dupa titlu) Tj ET
+q
+0.13 0.11 0.09 rg
+0.72 0.57 0.26 RG
+333 598 m 390.989898729 598 438 589.4934102462 438 579 c 438 568.5065897538 390.989898729 560 333 560 c 275.010101271 560 228 568.5065897538 228 579 c 228 589.4934102462 275.010101271 598 333 598 c B
+Q
+BT /F2 9 Tf 244 575 Td (Vizualizeaza detalii film) Tj ET
+q
+0.13 0.11 0.09 rg
+0.72 0.57 0.26 RG
+333 554 m 390.989898729 554 438 545.4934102462 438 535 c 438 524.5065897538 390.989898729 516 333 516 c 275.010101271 516 228 524.5065897538 228 535 c 228 545.4934102462 275.010101271 554 333 554 c B
+Q
+BT /F2 9 Tf 244 531 Td (Primeste recomandare) Tj ET
+q
+0.13 0.11 0.09 rg
+0.72 0.57 0.26 RG
+333 510 m 390.989898729 510 438 501.4934102462 438 491 c 438 480.5065897538 390.989898729 472 333 472 c 275.010101271 472 228 480.5065897538 228 491 c 228 501.4934102462 275.010101271 510 333 510 c B
+Q
+BT /F2 9 Tf 244 487 Td (Reimprospateaza datele) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 144 614 m 228 624 l S
+Q
+q
+0.65 0.72 0.68 rg
+228 624 m 221.68775445579678 627.0258149628962 l 222.57453732981944 619.5768388211058 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 144 614 m 228 580 l S
+Q
+q
+0.65 0.72 0.68 rg
+228 580 m 223.92873877111262 585.6942806399192 l 221.1142021108556 578.7407194792842 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 144 614 m 228 536 l S
+Q
+q
+0.65 0.72 0.68 rg
+228 536 m 226.22120146175385 542.7702197719375 l 221.1167464177592 537.2731143399433 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 144 614 m 228 492 l S
+Q
+q
+0.65 0.72 0.68 rg
+228 492 m 227.73758894913433 498.9950797308096 l 221.5589334340703 494.74092347453603 l h f
+Q
+BT /F2 15 Tf 48 404 Td (Praguri) Tj ET
+BT /F1 11 Tf 48 378 Td (Peste 80%: film recomandat pentru vizionare imediata.) Tj ET
+BT /F1 11 Tf 48 354 Td (Sub 50%: aplicatia recomanda evitarea filmului.) Tj ET
+BT /F1 11 Tf 48 330 Td (Intre 50% si 80%: recomandare neutra.) Tj ET
+BT /F1 11 Tf 48 306 Td (Fara scor: se afiseaza datele filmului fara recomandare ferma.) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 3020 >>
+stream
+BT /F2 10 Tf 48 794 Td (AuraCinema) Tj ET
+BT /F2 22 Tf 48 760 Td (Diagrama de activitate) Tj ET
+BT /F1 10 Tf 48 736 Td (Procesul porneste din interfata React si se termina prin afisarea rezultatului) Tj ET
+BT /F1 10 Tf 48 722 Td (sau a erorii.) Tj ET
+q
+0.09 0.08 0.09 rg
+0.58 0.51 0.39 RG
+200 674 190 36 re B
+Q
+BT /F2 10 Tf 210 692 Td (Start: titlul este introdus) Tj ET
+q
+0.11 0.12 0.11 rg
+0.36 0.78 0.70 RG
+295 656 m 375 627 l 295 598 l 215 627 l h B
+Q
+BT /F2 9 Tf 233 623 Td (Titlu valid?) Tj ET
+q
+0.18 0.08 0.08 rg
+0.58 0.51 0.39 RG
+52 548 160 40 re B
+Q
+BT /F1 10 Tf 62 568 Td (Eroare 400) Tj ET
+q
+0.11 0.12 0.11 rg
+0.36 0.78 0.70 RG
+295 560 m 375 531 l 295 502 l 215 531 l h B
+Q
+BT /F2 9 Tf 233 527 Td (Cache valid?) Tj ET
+q
+0.09 0.12 0.12 rg
+0.58 0.51 0.39 RG
+52 454 160 40 re B
+Q
+BT /F1 10 Tf 62 474 Td (Returneaza cache) Tj ET
+q
+0.13 0.10 0.08 rg
+0.58 0.51 0.39 RG
+380 454 160 40 re B
+Q
+BT /F1 10 Tf 390 474 Td (Apeleaza OMDb) Tj ET
+q
+0.11 0.12 0.11 rg
+0.36 0.78 0.70 RG
+460 428 m 525 399 l 460 370 l 395 399 l h B
+Q
+BT /F2 9 Tf 413 395 Td (Film gasit?) Tj ET
+q
+0.10 0.13 0.12 rg
+0.58 0.51 0.39 RG
+380 308 160 40 re B
+Q
+BT /F1 10 Tf 390 328 Td (Normalizeaza si salveaza) Tj ET
+q
+0.18 0.08 0.08 rg
+0.58 0.51 0.39 RG
+52 308 160 40 re B
+Q
+BT /F1 10 Tf 62 328 Td (Eroare 404) Tj ET
+q
+0.09 0.08 0.09 rg
+0.58 0.51 0.39 RG
+200 228 190 42 re B
+Q
+BT /F2 10 Tf 210 249 Td (Afiseaza rezultat) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 295 674 m 295 656 l S
+Q
+q
+0.65 0.72 0.68 rg
+295 656 m 298.750787564853 661.9102954785141 l 291.249212435147 661.9102954785141 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 215 627 m 132 588 l S
+Q
+q
+0.65 0.72 0.68 rg
+132 588 m 138.94430983398811 587.1187730544427 l 135.754101301226 593.9081912139109 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 295 598 m 295 560 l S
+Q
+q
+0.65 0.72 0.68 rg
+295 560 m 298.750787564853 565.9102954785141 l 291.249212435147 565.9102954785141 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 215 531 m 132 494 l S
+Q
+q
+0.65 0.72 0.68 rg
+132 494 m 138.92537866342244 492.98062255851266 l 135.87104310686323 499.8322401583617 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 375 531 m 460 494 l S
+Q
+q
+0.65 0.72 0.68 rg
+460 494 m 456.0778753389253 499.79801156802824 l 453.0838428231148 492.91982876143663 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 132 454 m 234 270 l S
+Q
+q
+0.65 0.72 0.68 rg
+234 270 m 234.41493735650712 276.9876911058071 l 227.85401978688708 273.35066071395244 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 460 454 m 460 428 l S
+Q
+q
+0.65 0.72 0.68 rg
+460 428 m 463.750787564853 433.9102954785141 l 456.249212435147 433.9102954785141 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 460 370 m 460 348 l S
+Q
+q
+0.65 0.72 0.68 rg
+460 348 m 463.750787564853 353.9102954785141 l 456.249212435147 353.9102954785141 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 395 399 m 132 348 l S
+Q
+q
+0.65 0.72 0.68 rg
+132 348 m 138.51624808871927 345.4429487986623 l 137.0881725963882 352.80733810225206 l h f
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 460 308 m 390 249 l S
+Q
+q
+0.65 0.72 0.68 rg
+390 249 m 396.9364543755578 249.94106359817258 l 392.10189882828087 255.67697695934856 l h f
+Q
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 2967 >>
+stream
+BT /F2 10 Tf 48 794 Td (AuraCinema) Tj ET
+BT /F2 22 Tf 48 760 Td (Diagrama de interactiune) Tj ET
+BT /F1 10 Tf 48 736 Td (Secventa principala pentru cautarea unui film si popularea cache-ului.) Tj ET
+q
+0.09 0.08 0.09 rg
+0.58 0.51 0.39 RG
+30 650 84 32 re B
+Q
+BT /F2 10 Tf 40 666 Td (Utilizator) Tj ET
+q
+0.38 0.37 0.34 RG
+1.4 w 72 650 m 72 284 l S
+Q
+q
+0.09 0.08 0.09 rg
+0.58 0.51 0.39 RG
+148 650 84 32 re B
+Q
+BT /F2 10 Tf 158 666 Td (Frontend) Tj ET
+q
+0.38 0.37 0.34 RG
+1.4 w 190 650 m 190 284 l S
+Q
+q
+0.09 0.08 0.09 rg
+0.58 0.51 0.39 RG
+268 650 84 32 re B
+Q
+BT /F2 10 Tf 278 666 Td (Backend) Tj ET
+q
+0.38 0.37 0.34 RG
+1.4 w 310 650 m 310 284 l S
+Q
+q
+0.09 0.08 0.09 rg
+0.58 0.51 0.39 RG
+388 650 84 32 re B
+Q
+BT /F2 10 Tf 398 666 Td (Cache JSON) Tj ET
+q
+0.38 0.37 0.34 RG
+1.4 w 430 650 m 430 284 l S
+Q
+q
+0.09 0.08 0.09 rg
+0.58 0.51 0.39 RG
+486 650 84 32 re B
+Q
+BT /F2 10 Tf 496 666 Td (OMDb) Tj ET
+q
+0.38 0.37 0.34 RG
+1.4 w 528 650 m 528 284 l S
+Q
+q
+0.65 0.72 0.68 RG
+1.4 w 72 618 m 190 618 l S
+Q
+q
+0.65 0.72 0.68 rg
+190 618 m 184.08970452148588 621.750787564853 l 184.08970452148588 614.249212435147 l h f
+Q
+BT /F1 8 Tf 92 626 Td (introduce titlu) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 190 574 m 310 574 l S
+Q
+q
+0.65 0.72 0.68 rg
+310 574 m 304.0897045214859 577.750787564853 l 304.0897045214859 570.249212435147 l h f
+Q
+BT /F1 8 Tf 208 582 Td (GET /api/movies) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 310 530 m 430 530 l S
+Q
+q
+0.65 0.72 0.68 rg
+430 530 m 424.0897045214859 533.750787564853 l 424.0897045214859 526.249212435147 l h f
+Q
+BT /F1 8 Tf 326 538 Td (verifica intrare) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 430 486 m 310 486 l S
+Q
+q
+0.65 0.72 0.68 rg
+310 486 m 315.9102954785141 482.249212435147 l 315.9102954785141 489.750787564853 l h f
+Q
+BT /F1 8 Tf 342 494 Td (cache valid) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 310 442 m 528 442 l S
+Q
+q
+0.65 0.72 0.68 rg
+528 442 m 522.0897045214859 445.750787564853 l 522.0897045214859 438.249212435147 l h f
+Q
+BT /F1 8 Tf 342 450 Td (daca lipseste: cerere OMDb) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 528 398 m 310 398 l S
+Q
+q
+0.65 0.72 0.68 rg
+310 398 m 315.9102954785141 394.249212435147 l 315.9102954785141 401.750787564853 l h f
+Q
+BT /F1 8 Tf 414 406 Td (date film) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 310 354 m 430 354 l S
+Q
+q
+0.65 0.72 0.68 rg
+430 354 m 424.0897045214859 357.750787564853 l 424.0897045214859 350.249212435147 l h f
+Q
+BT /F1 8 Tf 330 362 Td (salvare cache) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 310 310 m 190 310 l S
+Q
+q
+0.65 0.72 0.68 rg
+190 310 m 195.91029547851412 306.249212435147 l 195.91029547851412 313.750787564853 l h f
+Q
+BT /F1 8 Tf 216 318 Td (JSON normalizat) Tj ET
+q
+0.65 0.72 0.68 RG
+1.4 w 190 284 m 72 284 l S
+Q
+q
+0.65 0.72 0.68 rg
+72 284 m 77.9102954785141 280.249212435147 l 77.9102954785141 287.750787564853 l h f
+Q
+BT /F1 8 Tf 82 292 Td (poster, rating, recomandare) Tj ET
+BT /F2 15 Tf 48 210 Td (Rulare locala) Tj ET
+BT /F1 11 Tf 48 184 Td (npm install | cp .env.example .env | completati OMDB_API_KEY | npm run dev) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000135 00000 n 
+0000000205 00000 n 
+0000000280 00000 n 
+0000002734 00000 n 
+0000002870 00000 n 
+0000005526 00000 n 
+0000005662 00000 n 
+0000008734 00000 n 
+0000008871 00000 n 
+0000011891 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+12029
+%%EOF
