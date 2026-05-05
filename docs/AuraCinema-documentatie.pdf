@@ -12,7 +12,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 5 0 obj
-<< /Length 2402 >>
+<< /Length 2436 >>
 stream
 BT /F2 10 Tf 48 794 Td (AuraCinema) Tj ET
 BT /F2 22 Tf 48 760 Td (Documentatie proiect) Tj ET
@@ -20,7 +20,7 @@ BT /F1 10 Tf 48 736 Td (Aplicatie full-stack React + Node/Express pentru cautare
 BT /F1 10 Tf 48 722 Td (recomandari pe baza ratingului si cache local JSON.) Tj ET
 BT /F2 15 Tf 48 674 Td (Tehnologii) Tj ET
 BT /F1 11 Tf 48 650 Td (Frontend: React, JavaScript, Vite si CSS standard. Backend: Node.js, Express,) Tj ET
-BT /F1 11 Tf 48 634 Td (CORS si dotenv. Stocare: fisier JSON local. API extern: OMDb.) Tj ET
+BT /F1 11 Tf 48 634 Td (CORS si dotenv. Stocare: JSON Server peste storage/db.json. API extern: OMDb.) Tj ET
 BT /F2 15 Tf 48 588 Td (Arhitectura de ansamblu) Tj ET
 q
 0.11 0.09 0.08 rg
@@ -51,7 +51,7 @@ q
 0.58 0.51 0.39 RG
 444 448 96 44 re B
 Q
-BT /F2 10 Tf 454 470 Td (Cache JSON) Tj ET
+BT /F2 10 Tf 454 470 Td (JSON Server) Tj ET
 q
 0.65 0.72 0.68 RG
 1.4 w 146 520 m 178 520 l S
@@ -101,9 +101,9 @@ q
 412 512 m 412.5983990707647 505.0256241460538 l 418.56538987913973 509.5719028571967 l h f
 Q
 BT /F2 15 Tf 48 392 Td (Flux principal) Tj ET
-BT /F1 11 Tf 48 368 Td (Backend-ul verifica intai cache-ul. Daca intrarea lipseste, a expirat sau) Tj ET
-BT /F1 11 Tf 48 352 Td (cererea are refresh=true, datele sunt cerute de la OMDb, normalizate si salvate) Tj ET
-BT /F1 11 Tf 48 336 Td (cu o expirare calculata din CACHE_TTL_HOURS.) Tj ET
+BT /F1 11 Tf 48 368 Td (Backend-ul verifica intai cache-ul prin JSON Server. Daca intrarea lipseste, a) Tj ET
+BT /F1 11 Tf 48 352 Td (expirat sau cererea are refresh=true, datele sunt cerute de la OMDb, normalizate) Tj ET
+BT /F1 11 Tf 48 336 Td (si salvate cu o expirare calculata din CACHE_TTL_HOURS.) Tj ET
 endstream
 endobj
 6 0 obj
@@ -346,7 +346,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
 endobj
 11 0 obj
-<< /Length 2967 >>
+<< /Length 3024 >>
 stream
 BT /F2 10 Tf 48 794 Td (AuraCinema) Tj ET
 BT /F2 22 Tf 48 760 Td (Diagrama de interactiune) Tj ET
@@ -483,7 +483,8 @@ q
 Q
 BT /F1 8 Tf 82 292 Td (poster, rating, recomandare) Tj ET
 BT /F2 15 Tf 48 210 Td (Rulare locala) Tj ET
-BT /F1 11 Tf 48 184 Td (npm install | cp .env.example .env | completati OMDB_API_KEY | npm run dev) Tj ET
+BT /F1 11 Tf 48 184 Td (npm install | cp .env.example .env | terminale separate: storage, backend si) Tj ET
+BT /F1 11 Tf 48 168 Td (frontend cu npm run dev) Tj ET
 endstream
 endobj
 12 0 obj
@@ -491,21 +492,21 @@ endobj
 endobj
 xref
 0 13
-0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000135 00000 n 
-0000000205 00000 n 
-0000000280 00000 n 
-0000002734 00000 n 
-0000002870 00000 n 
-0000005526 00000 n 
-0000005662 00000 n 
-0000008734 00000 n 
-0000008871 00000 n 
-0000011891 00000 n 
+0000000000 65535 f
+0000000009 00000 n
+0000000058 00000 n
+0000000135 00000 n
+0000000205 00000 n
+0000000280 00000 n
+0000002768 00000 n
+0000002904 00000 n
+0000005560 00000 n
+0000005696 00000 n
+0000008768 00000 n
+0000008905 00000 n
+0000011982 00000 n
 trailer
 << /Size 13 /Root 1 0 R >>
 startxref
-12029
+12120
 %%EOF

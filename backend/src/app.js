@@ -4,7 +4,8 @@ import express from "express";
 import {
   ConfigurationError,
   ExternalApiError,
-  MovieNotFoundError
+  MovieNotFoundError,
+  StorageError
 } from "./errors.js";
 
 export function createApp({ movieService, corsOrigin = "http://localhost:5173" }) {
@@ -61,6 +62,13 @@ export function createApp({ movieService, corsOrigin = "http://localhost:5173" }
 
     if (error instanceof ExternalApiError) {
       response.status(502).json({
+        message: error.message
+      });
+      return;
+    }
+
+    if (error instanceof StorageError) {
+      response.status(503).json({
         message: error.message
       });
       return;

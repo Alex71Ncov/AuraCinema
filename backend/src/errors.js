@@ -18,3 +18,10 @@ export class ConfigurationError extends Error {
     this.name = "ConfigurationError";
   }
 }
+
+export class StorageError extends Error {
+  constructor(message = "Stocarea aplicatiei nu este disponibila.") {
+    super(message);
+    this.name = "StorageError";
+  }
+}

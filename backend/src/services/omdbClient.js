@@ -23,14 +23,21 @@ export function createOmdbClient({
 
       try {
         const response = await fetchImpl(url, { signal: controller.signal });
+        const body = await response.json().catch(() => null);
 
         if (!response.ok) {
+          if (response.status === 401 || body?.Error === "Invalid API key!") {
+            throw new ConfigurationError(
+              "Cheia OMDb din .env este invalida sau nu a fost activata."
+            );
+          }
+
           throw new ExternalApiError(
-            `OMDb a raspuns cu status HTTP ${response.status}.`
+            body?.Error || `OMDb a raspuns cu status HTTP ${response.status}.`
           );
         }
 
-        return await response.json();
+        return body;
       } catch (error) {
         if (error instanceof ConfigurationError || error instanceof ExternalApiError) {
           throw error;

@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { createApp } from "./app.js";
-import { FileMovieCache } from "./cache/fileMovieCache.js";
+import { createMovieCache } from "./cache/createMovieCache.js";
 import { createMovieService } from "./services/movieService.js";
 import { createOmdbClient } from "./services/omdbClient.js";
 
@@ -22,10 +22,14 @@ const cacheTtlHours =
     ? parsedCacheTtlHours
     : 24;
 const corsOrigin = process.env.CORS_ORIGIN ?? "http://localhost:5173";
+const cacheDriver = process.env.CACHE_DRIVER ?? "json-server";
+const jsonServerUrl = process.env.JSON_SERVER_URL ?? "http://127.0.0.1:5001";
 
-const cache = new FileMovieCache({
-  filePath: path.join(backendRoot, "data", "movies-cache.json"),
-  ttlHours: cacheTtlHours
+const cache = createMovieCache({
+  backendRoot,
+  cacheDriver,
+  cacheTtlHours,
+  jsonServerUrl
 });
 
 const movieService = createMovieService({

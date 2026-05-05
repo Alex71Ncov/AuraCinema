@@ -179,7 +179,7 @@ function createPages() {
   text(page1, "Tehnologii", margin, 674, { size: 15, bold: true });
   paragraph(
     page1,
-    "Frontend: React, JavaScript, Vite si CSS standard. Backend: Node.js, Express, CORS si dotenv. Stocare: fisier JSON local. API extern: OMDb.",
+    "Frontend: React, JavaScript, Vite si CSS standard. Backend: Node.js, Express, CORS si dotenv. Stocare: JSON Server peste storage/db.json. API extern: OMDb.",
     margin,
     650,
     80
@@ -189,7 +189,7 @@ function createPages() {
   box(page1, 178, 496, 98, 48, "Frontend React", { bold: true, fill: "0.10 0.13 0.12" });
   box(page1, 308, 496, 104, 48, "Backend Express", { bold: true, fill: "0.11 0.10 0.13" });
   box(page1, 444, 544, 96, 44, "OMDb API", { bold: true, fill: "0.13 0.10 0.08" });
-  box(page1, 444, 448, 96, 44, "Cache JSON", { bold: true, fill: "0.09 0.12 0.12" });
+  box(page1, 444, 448, 96, 44, "JSON Server", { bold: true, fill: "0.09 0.12 0.12" });
   arrow(page1, 146, 520, 178, 520);
   arrow(page1, 276, 520, 308, 520);
   arrow(page1, 412, 528, 444, 560);
@@ -199,7 +199,7 @@ function createPages() {
   text(page1, "Flux principal", margin, 392, { size: 15, bold: true });
   paragraph(
     page1,
-    "Backend-ul verifica intai cache-ul. Daca intrarea lipseste, a expirat sau cererea are refresh=true, datele sunt cerute de la OMDb, normalizate si salvate cu o expirare calculata din CACHE_TTL_HOURS.",
+    "Backend-ul verifica intai cache-ul prin JSON Server. Daca intrarea lipseste, a expirat sau cererea are refresh=true, datele sunt cerute de la OMDb, normalizate si salvate cu o expirare calculata din CACHE_TTL_HOURS.",
     margin,
     368,
     80
@@ -282,7 +282,7 @@ function createPages() {
   arrow(page4, 190, 284, 72, 284);
   text(page4, "poster, rating, recomandare", 82, 292, { size: 8 });
   text(page4, "Rulare locala", margin, 210, { size: 15, bold: true });
-  paragraph(page4, "npm install | cp .env.example .env | completati OMDB_API_KEY | npm run dev", margin, 184, 82);
+  paragraph(page4, "npm install | cp .env.example .env | terminale separate: storage, backend si frontend cu npm run dev", margin, 184, 82);
   pages.push(page4.join("\n"));
 
   return pages;
@@ -323,10 +323,10 @@ function buildPdf(pageStreams) {
 
   const xrefOffset = Buffer.byteLength(pdf);
   pdf += `xref\n0 ${objects.length}\n`;
-  pdf += "0000000000 65535 f \n";
+  pdf += "0000000000 65535 f\n";
 
   for (let index = 1; index < objects.length; index += 1) {
-    pdf += `${String(offsets[index]).padStart(10, "0")} 00000 n \n`;
+    pdf += `${String(offsets[index]).padStart(10, "0")} 00000 n\n`;
   }
 
   pdf += `trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF\n`;

@@ -15,19 +15,20 @@ Regulile de recomandare sunt:
 
 - Frontend: React, JavaScript, Vite, CSS standard.
 - Backend: Node.js, Express, CORS, dotenv.
-- Stocare: fisier JSON local pentru cache (`backend/data/movies-cache.json`).
+- Stocare: JSON Server peste fisierul `storage/db.json`.
 - API extern: OMDb API.
 - Documentatie: Markdown, Mermaid si PDF generat local.
 
 ## 3. Arhitectura de ansamblu
 
-Frontend-ul trimite o cerere catre backend pentru titlul cautat. Backend-ul verifica intai cache-ul JSON. Daca intrarea exista si nu a expirat, raspunsul este intors direct. Daca intrarea lipseste, este expirata sau utilizatorul cere refresh, backend-ul interogheaza OMDb, normalizeaza raspunsul, salveaza intrarea in cache si intoarce datele catre frontend.
+Frontend-ul trimite o cerere catre backend pentru titlul cautat. Backend-ul verifica intai cache-ul prin JSON Server. Daca intrarea exista si nu a expirat, raspunsul este intors direct. Daca intrarea lipseste, este expirata sau utilizatorul cere refresh, backend-ul interogheaza OMDb, normalizeaza raspunsul, salveaza intrarea in cache si intoarce datele catre frontend.
 
 ```mermaid
 flowchart LR
   U[Utilizator] --> F[Frontend React]
   F -->|GET /api/movies?title=...| B[Backend Express]
-  B --> C[(Cache JSON local)]
+  B --> C[JSON Server]
+  C --> D[(storage/db.json)]
   B -->|daca lipseste sau expira| O[OMDb API]
   O --> B
   C --> B
@@ -125,7 +126,7 @@ Raspunsul principal contine:
 
 ## 8. Cache si expirare
 
-Cache-ul este salvat in `backend/data/movies-cache.json`. Cheia este titlul normalizat al filmului: fara spatii inutile si cu litere mici. Durata implicita a cache-ului este de 24 de ore si poate fi schimbata prin `CACHE_TTL_HOURS`.
+Cache-ul este salvat in `storage/db.json`, in colectia `movieCache`, prin JSON Server. Cheia este titlul normalizat al filmului: fara spatii inutile si cu litere mici. Durata implicita a cache-ului este de 24 de ore si poate fi schimbata prin `CACHE_TTL_HOURS`.
 
 Daca utilizatorul apasa reimprospatare, frontend-ul trimite `refresh=true`, iar backend-ul ocoleste cache-ul pentru cautarea respectiva.
 
@@ -134,7 +135,27 @@ Daca utilizatorul apasa reimprospatare, frontend-ul trimite `refresh=true`, iar 
 ```bash
 npm install
 cp .env.example .env
+```
+
+Terminal 1:
+
+```bash
+cd storage
 npm run dev
 ```
 
-In `.env` trebuie completata variabila `OMDB_API_KEY`. Frontend-ul ruleaza pe `http://localhost:5173`, iar backend-ul pe `http://localhost:4000`.
+Terminal 2:
+
+```bash
+cd backend
+npm run dev
+```
+
+Terminal 3:
+
+```bash
+cd frontend
+npm run dev
+```
+
+In `.env` trebuie completata variabila `OMDB_API_KEY`. Storage-ul ruleaza pe `http://127.0.0.1:5001`, backend-ul pe `http://localhost:4000`, iar frontend-ul pe `http://localhost:5173`.

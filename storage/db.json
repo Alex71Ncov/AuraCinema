@@ -1,0 +1,184 @@
+{
+  "movieCache": [
+    {
+      "key": "the godfather",
+      "originalTitle": "The Godfather",
+      "fetchedAt": "2026-05-05T14:59:38.487Z",
+      "expiresAt": "2026-05-06T14:59:38.487Z",
+      "data": {
+        "title": "The Godfather",
+        "year": "1972",
+        "rated": "R",
+        "runtime": "175 min",
+        "plot": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+        "poster": "https://m.media-amazon.com/images/M/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_QL75_UY562_CR8,0,380,562_.jpg",
+        "scorePercent": 97,
+        "scoreSource": "Rotten Tomatoes",
+        "recommendation": "Ar trebui sa vizionati acest film chiar acum!"
+      },
+      "id": 1
+    },
+    {
+      "key": "guardians of the galaxy",
+      "originalTitle": "Guardians of the Galaxy",
+      "fetchedAt": "2026-05-05T14:59:42.361Z",
+      "expiresAt": "2026-05-06T14:59:42.361Z",
+      "data": {
+        "title": "Guardians of the Galaxy",
+        "year": "2014",
+        "rated": "PG-13",
+        "runtime": "121 min",
+        "plot": "A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.",
+        "poster": "https://m.media-amazon.com/images/M/MV5BM2ZmNjQ2MzAtNDlhNi00MmQyLWJhZDMtNmJiMjFlOWY4MzcxXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+        "scorePercent": 91,
+        "scoreSource": "Rotten Tomatoes",
+        "recommendation": "Ar trebui sa vizionati acest film chiar acum!"
+      },
+      "id": 2
+    },
+    {
+      "key": "dune",
+      "originalTitle": "Dune",
+      "fetchedAt": "2026-05-05T14:59:43.612Z",
+      "expiresAt": "2026-05-06T14:59:43.612Z",
+      "data": {
+        "title": "Dune",
+        "year": "1984",
+        "rated": "PG-13",
+        "runtime": "137 min",
+        "plot": "A Duke's son leads desert warriors against the galactic emperor and his father's evil nemesis to free their desert world from the emperor's rule.",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMGJlMGM3NDAtOWNhMy00MWExLWI2MzEtMDQ0ZDIzZDY5ZmQ2XkEyXkFqcGc@._V1_SX300.jpg",
+        "scorePercent": 36,
+        "scoreSource": "Rotten Tomatoes",
+        "recommendation": "Ar trebui sa evitati filmul cu orice pret."
+      },
+      "id": 3
+    },
+    {
+      "key": "avatar",
+      "originalTitle": "Avatar",
+      "fetchedAt": "2026-05-05T15:00:04.428Z",
+      "expiresAt": "2026-05-06T15:00:04.428Z",
+      "data": {
+        "title": "Avatar",
+        "year": "2009",
+        "rated": "PG-13",
+        "runtime": "162 min",
+        "plot": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMDEzMmQwZjctZWU2My00MWNlLWE0NjItMDJlYTRlNGJiZjcyXkEyXkFqcGc@._V1_SX300.jpg",
+        "scorePercent": 81,
+        "scoreSource": "Rotten Tomatoes",
+        "recommendation": "Ar trebui sa vizionati acest film chiar acum!"
+      },
+      "id": 4
+    },
+    {
+      "key": "avatar 2",
+      "originalTitle": "Avatar 2",
+      "fetchedAt": "2026-05-05T14:59:51.113Z",
+      "expiresAt": "2026-05-06T14:59:51.113Z",
+      "data": {
+        "title": "Avatar 2: The Way of Water. Poetic Version",
+        "year": "2022",
+        "rated": "Evaluare indisponibila",
+        "runtime": "Durata indisponibila",
+        "plot": "Descriere indisponibila.",
+        "poster": null,
+        "scorePercent": null,
+        "scoreSource": null,
+        "recommendation": "Nu exista suficiente date de rating pentru o recomandare ferma."
+      },
+      "id": 5
+    },
+    {
+      "key": "angry birds",
+      "originalTitle": "Angry birds",
+      "fetchedAt": "2026-05-05T15:00:22.987Z",
+      "expiresAt": "2026-05-06T15:00:22.987Z",
+      "data": {
+        "title": "Angry Birds",
+        "year": "2021",
+        "rated": "Evaluare indisponibila",
+        "runtime": "Durata indisponibila",
+        "plot": "Friendship is the most expensive and beautiful gift one can give someone. As time passes by, lots of people will walk past, but only some stay with you forever, and those friendships will stick by one's side through thick and thin...",
+        "poster": null,
+        "scorePercent": null,
+        "scoreSource": null,
+        "recommendation": "Nu exista suficiente date de rating pentru o recomandare ferma."
+      },
+      "id": 6
+    },
+    {
+      "key": "the count of monte cristo",
+      "originalTitle": "The count of monte cristo",
+      "fetchedAt": "2026-05-05T15:00:37.791Z",
+      "expiresAt": "2026-05-06T15:00:37.791Z",
+      "data": {
+        "title": "The Count of Monte Cristo",
+        "year": "2002",
+        "rated": "PG-13",
+        "runtime": "131 min",
+        "plot": "A young man, falsely imprisoned by his jealous \"friend\", escapes and uses a hidden treasure to exact his revenge.",
+        "poster": "https://m.media-amazon.com/images/M/MV5BYjQ3NWUxNDMtNGUyYS00M2E4LThmYjgtZmQ3YTU4ZWZlNTk0XkEyXkFqcGc@._V1_SX300.jpg",
+        "scorePercent": 74,
+        "scoreSource": "Rotten Tomatoes",
+        "recommendation": "Filmul merita luat in calcul, dar nu este o recomandare urgenta."
+      },
+      "id": 7
+    },
+    {
+      "key": "fast and furious",
+      "originalTitle": "Fast and furious",
+      "fetchedAt": "2026-05-05T15:01:04.693Z",
+      "expiresAt": "2026-05-06T15:01:04.693Z",
+      "data": {
+        "title": "Fast and Furious",
+        "year": "1939",
+        "rated": "Approved",
+        "runtime": "73 min",
+        "plot": "Rare book dealers Joel and Garda take a summertime jaunt to the seashore where he becomes involved in a beauty pageant as investor and judge - much to her chagrin.",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMjAyNTQ1NjA3Ml5BMl5BanBnXkFtZTgwOTIyNjIxMzE@._V1_SX300.jpg",
+        "scorePercent": 61,
+        "scoreSource": "IMDb",
+        "recommendation": "Filmul merita luat in calcul, dar nu este o recomandare urgenta."
+      },
+      "id": 8
+    },
+    {
+      "key": "tokyo drift",
+      "originalTitle": "Tokyo drift",
+      "fetchedAt": "2026-05-05T15:01:15.416Z",
+      "expiresAt": "2026-05-06T15:01:15.416Z",
+      "data": {
+        "title": "The Fast and the Furious: Tokyo Drift",
+        "year": "2006",
+        "rated": "PG-13",
+        "runtime": "104 min",
+        "plot": "A teenager becomes a major competitor in the world of drift racing after moving in with his father in Tokyo to avoid a jail sentence in America.",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTQ2NTMxODEyNV5BMl5BanBnXkFtZTcwMDgxMjA0MQ@@._V1_SX300.jpg",
+        "scorePercent": 38,
+        "scoreSource": "Rotten Tomatoes",
+        "recommendation": "Ar trebui sa evitati filmul cu orice pret."
+      },
+      "id": 9
+    },
+    {
+      "key": "robocop",
+      "originalTitle": "Robocop",
+      "fetchedAt": "2026-05-05T15:01:43.210Z",
+      "expiresAt": "2026-05-06T15:01:43.210Z",
+      "data": {
+        "title": "RoboCop",
+        "year": "1987",
+        "rated": "R",
+        "runtime": "102 min",
+        "plot": "In a violent future in Old Detroit, murdered police officer Alex Murphy is resurrected as RoboCop, a powerful cyborg law enforcer. As he fights crime, he begins to recover memories of his past and seeks revenge on the gang who kil...",
+        "poster": "https://m.media-amazon.com/images/M/MV5BZWM1YzRhODktZDE1MC00NzBlLTk0NGMtOGNhZDQyMmJiZGFiXkEyXkFqcGc@._V1_SX300.jpg",
+        "scorePercent": 84,
+        "scoreSource": "Rotten Tomatoes",
+        "recommendation": "Ar trebui sa vizionati acest film chiar acum!"
+      },
+      "id": 10
+    }
+  ]
+}
